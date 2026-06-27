@@ -1,16 +1,16 @@
 #!/usr/bin/env sh
 set -eu
 
-PROJECT_ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+PROJECT_ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)
 SQLITE_JDBC=${SQLITE_JDBC:-"$PROJECT_ROOT/lib/sqlite-jdbc-3.53.1.0.jar"}
 TEST_DATABASE=/tmp/clinic-data-test.db
 
 if [ ! -f "$SQLITE_JDBC" ]; then
-    printf 'SQLite JDBC driver was not found. Run ./scripts/download-sqlite-jdbc.sh first.\n' >&2
+    printf 'SQLite JDBC driver was not found. Run ./scripts/linux/download-sqlite-jdbc.sh first.\n' >&2
     exit 1
 fi
 
-"$PROJECT_ROOT/scripts/build.sh"
+"$PROJECT_ROOT/scripts/linux/build.sh"
 mkdir -p "$PROJECT_ROOT/build/test-classes"
 
 javac \

@@ -10,7 +10,7 @@
         "lib/sqlite-jdbc-3.53.1.0.jar"
     ],
     "code-runner.executorMap": {
-        "java": "cd \"$workspaceRoot\" && ./scripts/run.sh"
+        "java": "cd \"$workspaceRoot\" && ./scripts/linux/run.sh"
     },
     "code-runner.ignoreSelection": true,
     "code-runner.runInTerminal": true,

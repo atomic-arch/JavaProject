@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-for %%I in ("%~dp0..") do set "PROJECT_ROOT=%%~fI"
+for %%I in ("%~dp0..\..") do set "PROJECT_ROOT=%%~fI"
 set "JAVAFX_VERSION=21.0.8"
 set "JAVAFX_SDK=%PROJECT_ROOT%\lib\javafx-sdk-%JAVAFX_VERSION%"
 set "JAVAFX_URL=https://download2.gluonhq.com/openjfx/%JAVAFX_VERSION%/openjfx-%JAVAFX_VERSION%_windows-x64_bin-sdk.zip"

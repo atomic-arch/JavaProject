@@ -1,5 +1,7 @@
 /lib/
 /build/
+/dist/
+/tools/
 /data/*.db
 .idea/
 *.iml

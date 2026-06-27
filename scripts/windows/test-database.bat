@@ -1,16 +1,16 @@
 @echo off
 setlocal
 
-for %%I in ("%~dp0..") do set "PROJECT_ROOT=%%~fI"
+for %%I in ("%~dp0..\..") do set "PROJECT_ROOT=%%~fI"
 set "SQLITE_JDBC=%PROJECT_ROOT%\lib\sqlite-jdbc-3.53.1.0.jar"
 set "TEST_DATABASE=%TEMP%\clinic-data-test.db"
 
 if not exist "%SQLITE_JDBC%" (
-    echo SQLite JDBC driver was not found. Run scripts\download-sqlite-jdbc.bat first.
+    echo SQLite JDBC driver was not found. Run scripts\windows\download-sqlite-jdbc.bat first.
     exit /b 1
 )
 
-call "%PROJECT_ROOT%\scripts\build.bat"
+call "%PROJECT_ROOT%\scripts\windows\build.bat"
 if errorlevel 1 exit /b %errorlevel%
 
 if exist "%PROJECT_ROOT%\build\test-classes" rmdir /s /q "%PROJECT_ROOT%\build\test-classes"

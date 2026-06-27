@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-for %%I in ("%~dp0..") do set "PROJECT_ROOT=%%~fI"
+for %%I in ("%~dp0..\..") do set "PROJECT_ROOT=%%~fI"
 set "JAVAFX_SDK=%PROJECT_ROOT%\lib\javafx-sdk-21.0.8"
 set "SQLITE_JDBC=%PROJECT_ROOT%\lib\sqlite-jdbc-3.53.1.0.jar"
 
@@ -44,7 +44,7 @@ if exist "%JAVAFX_SDK%\lib\libglass.so" (
 )
 
 if not exist "%JAVAFX_SDK%\lib\javafx.controls.jar" (
-    call "%PROJECT_ROOT%\scripts\download-javafx-windows.bat"
+    call "%PROJECT_ROOT%\scripts\windows\download-javafx-windows.bat"
     if errorlevel 1 exit /b %errorlevel%
 ) else (
     echo JavaFX SDK is already available at %JAVAFX_SDK%
@@ -53,7 +53,7 @@ echo.
 
 echo Step 3 of 5: Checking SQLite JDBC...
 if not exist "%SQLITE_JDBC%" (
-    call "%PROJECT_ROOT%\scripts\download-sqlite-jdbc.bat"
+    call "%PROJECT_ROOT%\scripts\windows\download-sqlite-jdbc.bat"
     if errorlevel 1 exit /b %errorlevel%
 ) else (
     echo SQLite JDBC driver is already available at %SQLITE_JDBC%
@@ -61,7 +61,7 @@ if not exist "%SQLITE_JDBC%" (
 echo.
 
 echo Step 4 of 5: Building and testing the project...
-call "%PROJECT_ROOT%\scripts\test-database.bat"
+call "%PROJECT_ROOT%\scripts\windows\test-database.bat"
 if errorlevel 1 (
     echo Setup failed during build or database testing.
     exit /b %errorlevel%
@@ -70,7 +70,7 @@ echo.
 
 echo Step 5 of 5: Setup complete.
 echo You can run the app later with:
-echo scripts\run.bat
+echo scripts\windows\run.bat
 echo.
 
 choice /c YN /m "Launch the app now"
@@ -79,4 +79,4 @@ if errorlevel 2 (
     exit /b 0
 )
 
-call "%PROJECT_ROOT%\scripts\run.bat"
+call "%PROJECT_ROOT%\scripts\windows\run.bat"

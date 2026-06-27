@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-for %%I in ("%~dp0..") do set "PROJECT_ROOT=%%~fI"
+for %%I in ("%~dp0..\..") do set "PROJECT_ROOT=%%~fI"
 set "SQLITE_JDBC_VERSION=3.53.1.0"
 set "SQLITE_JDBC=%PROJECT_ROOT%\lib\sqlite-jdbc-%SQLITE_JDBC_VERSION%.jar"
 set "SQLITE_JDBC_URL=https://repo.maven.apache.org/maven2/org/xerial/sqlite-jdbc/%SQLITE_JDBC_VERSION%/sqlite-jdbc-%SQLITE_JDBC_VERSION%.jar"
