@@ -1,10 +1,41 @@
+# Downloaded dependencies
 /lib/
+
+# Build and packaging output
 /build/
 /dist/
+/out/
+*.class
+*.jar
+*.war
+*.ear
+
+# Local application data
+/data/
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Local packaging tools
 /tools/
-/data/*.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+
+# IDE and editor files
 .idea/
 *.iml
 .vscode/*
 !.vscode/settings.json
 !.vscode/launch.json
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
