@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run JavaFX Application",
+            "request": "launch",
+            "mainClass": "clinic.HelloApplication",
+            "vmArgs": [
+                "--module-path",
+                "${workspaceFolder}/lib/javafx-sdk-21.0.8/lib",
+                "--add-modules",
+                "javafx.controls",
+                "-Dclinic.database=${workspaceFolder}/data/clinic.db"
+            ]
+        }
+    ]
+}

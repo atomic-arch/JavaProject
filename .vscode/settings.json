@@ -1,0 +1,18 @@
+{
+    "java.server.launchMode": "Standard",
+    "java.project.sourcePaths": [
+        "src/main/java",
+        "src/test/java"
+    ],
+    "java.project.outputPath": "build/classes",
+    "java.project.referencedLibraries": [
+        "lib/javafx-sdk-21.0.8/lib/*.jar",
+        "lib/sqlite-jdbc-3.53.1.0.jar"
+    ],
+    "code-runner.executorMap": {
+        "java": "cd \"$workspaceRoot\" && ./scripts/run.sh"
+    },
+    "code-runner.ignoreSelection": true,
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true
+}
