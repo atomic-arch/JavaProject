@@ -15,6 +15,7 @@ call "%PROJECT_ROOT%\scripts\build.bat"
 if errorlevel 1 exit /b %errorlevel%
 
 java ^
+    --sun-misc-unsafe-memory-access=allow ^
     "-Dclinic.database=%PROJECT_ROOT%\data\clinic.db" ^
     --module-path "%JAVAFX_LIB%" ^
     --add-modules javafx.controls ^

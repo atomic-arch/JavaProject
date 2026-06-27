@@ -21,7 +21,8 @@ if exist "%PROJECT_ROOT%\build\classes" rmdir /s /q "%PROJECT_ROOT%\build\classe
 if not exist "%PROJECT_ROOT%\build\classes" mkdir "%PROJECT_ROOT%\build\classes"
 
 if exist "%SOURCES_FILE%" del /q "%SOURCES_FILE%"
-for /r "%PROJECT_ROOT%\src\main\java" %%F in (*.java) do echo "%%F">>"%SOURCES_FILE%"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-ChildItem -Path '%PROJECT_ROOT%\src\main\java' -Recurse -Filter *.java | ForEach-Object { '\"' + ($_.FullName -replace '\\', '/') + '\"' } | Set-Content -Path '%SOURCES_FILE%' -Encoding ASCII"
+if errorlevel 1 exit /b %errorlevel%
 
 javac ^
     --module-path "%JAVAFX_LIB%" ^
